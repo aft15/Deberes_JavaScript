@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Introduce nombre:<input type="text" id="nomnbre"><button onclick="guardar();">Guardar</button>
+    <br><br>
+    <button onclick="mostrar();">Mostrar</button>
+    <div id="listaNombres">
+
+    </div>
+
+    <script>
+        //array donde guardamos los nombres
+        let nombres=[];
+        function guardar(){
+            //impedir que los nombres se repitan
+            let n=document.getElementById("nombre").value;
+            let repetido=false;
+            //recorremos el array y si encontramos un nombre igual al de la variable n
+            //ponemos la variable repetido al valor true
+            for(let nombre of nombres){
+                if(nombre==n){
+                    repetido=true;
+                }
+            }
+            if(repetido==false){
+                nombres.push(n);
+                alert("Contacto guardado");
+            }else{
+                alert("No añadido, el contacto ya existe.");
+            }
+            //limpiar la caja de texto
+            document.getElementById("nomnre").value="";
+        }
+        function mostrar(){
+            let html="";
+            for(let n of nombres){
+                html=html+"<b>"+n+"</b><a>img src= <br>"
+            }
+            document.getElementById("listaNombres").innerHTML=html;
+        }
+    </script>
+</body>
+</html>
