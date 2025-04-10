@@ -38,10 +38,19 @@
         }
         function mostrar(){
             let html="";
+            /*
             for(let n of nombres){
-                html=html+"<b>"+n+"</b><a>img src= <br>"
+                //html=html+"<b>"+nombres[i]+"</b><a onclick='borrar("+i+");'><img src='papelera.png' height='20px'width='20px'> <br>"
+            */
+            for(let i=0;i<nombres.length;i++){
+                html=html+"<b>"${nombres[i]}+"</b><a onclick='borrar($i);'><img src='papelera.png' height='20px'width='20px'> <br>"
             }
             document.getElementById("listaNombres").innerHTML=html;
+        }
+        function borrar(pos){
+            //borra el nombre que está en la posición pos
+            nombres.splice(pos,1);
+            mostrar();
         }
     </script>
 </body>
